@@ -99,54 +99,7 @@
     </div>
   </footer>
 
-  <script>
-    (function(){
-      var links = document.querySelectorAll('.menu a');
-      var here = location.pathname.split('/').pop() || 'index.html';
-      links.forEach(function(a){
-        var href = a.getAttribute('href');
-        if(href === here){ a.classList.add('active'); a.setAttribute('aria-current','page'); }
-        if(here === '' && (href === 'index.html' || href === './')){ a.classList.add('active'); a.setAttribute('aria-current','page'); }
-      });
-    })();
-  </script>
-
-  <!-- Page Animation Script -->
-  <script>
-    // Intersection Observer for page animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-in');
-                
-                // Animate skill cards with staggered delays
-                const skillCards = entry.target.querySelectorAll('.animate-skill-card');
-                skillCards.forEach((card, index) => {
-                    setTimeout(() => {
-                        card.classList.add('animate-in');
-                    }, index * 100);
-                });
-            }
-        });
-    }, observerOptions);
-
-    // Page load animations
-    document.addEventListener('DOMContentLoaded', () => {
-        // Animate page title
-        setTimeout(() => {
-            document.querySelector('.animate-page-title').classList.add('animate-in');
-        }, 300);
-        
-        // Observe scroll elements
-        const animateElements = document.querySelectorAll('.animate-on-scroll');
-        animateElements.forEach(el => observer.observe(el));
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
 

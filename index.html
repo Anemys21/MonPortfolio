@@ -19,76 +19,7 @@
                 </ul>
             </nav>
     </header>
-    <script>
-      (function(){
-        var links = document.querySelectorAll('.menu a');
-        var here = location.pathname.split('/').pop() || 'index.html';
-        links.forEach(function(a){
-          var href = a.getAttribute('href');
-          if(href === here){ a.classList.add('active'); a.setAttribute('aria-current','page'); }
-          if(here === '' && (href === 'index.html' || href === './')){ a.classList.add('active'); a.setAttribute('aria-current','page'); }
-        });
-      })();
-    </script>
-    
-    <!-- Scroll Animation Script -->
-    <script>
-        // Intersection Observer for scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-in');
-                    
-                    // Animate timeline items with staggered delays
-                    const timelineItems = entry.target.querySelectorAll('.animate-timeline-item');
-                    timelineItems.forEach((item, index) => {
-                        const delay = parseFloat(item.dataset.delay) || 0;
-                        setTimeout(() => {
-                            item.style.animationDelay = delay + 's';
-                            item.style.opacity = '1';
-                        }, delay * 1000);
-                    });
-                    
-                    // Animate tools section
-                    if (entry.target.classList.contains('tools')) {
-                        // Animate tools title
-                        const toolsTitle = entry.target.querySelector('.animate-tools-title');
-                        if (toolsTitle) {
-                            setTimeout(() => {
-                                toolsTitle.classList.add('animate-in');
-                            }, 200);
-                        }
-                        
-                        // Animate tool cards with staggered delays
-                        const toolCards = entry.target.querySelectorAll('.animate-tool-card');
-                        toolCards.forEach((card, index) => {
-                            setTimeout(() => {
-                                card.classList.add('animate-in');
-                                
-                                // Store original width for meter animation
-                                const meter = card.querySelector('.tool-meter .level');
-                                if (meter) {
-                                    const width = meter.style.width;
-                                    meter.style.setProperty('--target-width', width);
-                                }
-                            }, 400 + (index * 100));
-                        });
-                    }
-                }
-            });
-        }, observerOptions);
-
-        // Observe elements when DOM is loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            const animateElements = document.querySelectorAll('.animate-on-scroll');
-            animateElements.forEach(el => observer.observe(el));
-        });
-    </script>
+    <script src="script.js"></script>
     
     <section class="back">
         <div class="hero">
