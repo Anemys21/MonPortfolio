@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Competences - Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <meta charset="utf-8" />
+</head>
+<body>
+  <header>
+    <nav class="menu-nav">
+      <h2 class="portfolio">Portfolio</h2>
+      <h2 class="nom">AMOUBE NDE LOUANGE-MYSTERE</h2>
+      <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="competences.html">Competences</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contacts</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="skills-container">
+    <h1 class="skills-title animate-page-title">Competences</h1>
+
+    <section class="skills-frame animate-on-scroll">
+      <div class="skills-grid animate-skills-grid">
+        <div class="skill-card animate-skill-card" data-delay="0.1">
+          <div class="skill-icon brand"><i class="fa-brands fa-html5"></i></div>
+          <span class="skill-name">HTML5</span>
+          <div class="skill-meter"><span style="width: 90%"></span></div>
+        </div>
+        <div class="skill-card animate-skill-card" data-delay="0.1">
+          <div class="skill-icon brand"><i class="fa-brands fa-css3-alt"></i></div>
+          <span class="skill-name">CSS3</span>
+          <div class="skill-meter"><span style="width: 85%"></span></div>
+        </div>
+        <div class="skill-card animate-skill-card" data-delay="0.1">
+          <div class="skill-icon brand"><i class="fa-brands fa-js"></i></div>
+          <span class="skill-name">JavaScript</span>
+          <div class="skill-meter"><span style="width: 30%"></span></div>
+        </div>
+        <div class="skill-card animate-skill-card" data-delay="0.1">
+          <div class="skill-icon brand"><i class="fa-brands fa-python"></i></div>
+          <span class="skill-name">Python</span>
+          <div class="skill-meter"><span style="width: 70%"></span></div>
+        </div>
+        <div class="skill-card animate-skill-card" data-delay="0.1">
+          <div class="skill-icon brand"><i class="fa-brands fa-react"></i></div>
+          <span class="skill-name">React</span>
+          <div class="skill-meter"><span style="width: 30%"></span></div>
+        </div>
+        <div class="skill-card animate-skill-card" data-delay="0.1">
+          <div class="skill-icon brand"><img src="https://cdn.simpleicons.org/processingfoundation/FFFFFF" alt="Processing" style="width:36px;height:36px"/></div>
+          <span class="skill-name">Processing</span>
+          <div class="skill-meter"><span style="width: 80%"></span></div>
+        </div>
+        <div class="skill-card animate-skill-card" data-delay="0.1">
+          <div class="skill-icon brand"><i class="fa-brands fa-github"></i></div>
+          <span class="skill-name">GitHub</span>
+          <div class="skill-meter"><span style="width: 30%"></span></div>
+        </div>
+        <div class="skill-card animate-skill-card" data-delay="0.1">
+          <div class="skill-icon brand"><img src="https://cdn.simpleicons.org/dart/FFFFFF" alt="Dart" style="width:36px;height:36px"/></div>
+          <span class="skill-name">Dart</span>
+          <div class="skill-meter"><span style="width: 65%"></span></div>
+        </div>
+        <div class="skill-card animate-skill-card" data-delay="0.1">
+          <div class="skill-icon brand"><img src="https://cdn.simpleicons.org/flutter/FFFFFF" alt="Flutter" style="width:36px;height:36px"/></div>
+          <span class="skill-name">Flutter</span>
+          <div class="skill-meter"><span style="width: 60%"></span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">Portfolio</div>
+        <div class="socials">
+          <a href="https://github.com/Anemys21" aria-label="Github" class="social"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/mystere-nde-1aa960379?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" aria-label="LinkedIn" class="social"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://x.com/Mysterelouange?t=dGSXy-oxYhgWmnEa4SIldg&s=09" aria-label="Twitter" class="social"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" aria-label="Instagram" class="social"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <ul>
+          <li><i class="fa-solid fa-envelope"></i> <a href="mailto:louangeamoube@example.com">louangeamoube@example.com</a></li>
+          <li><i class="fa-solid fa-phone"></i> <a href="tel:+237677223928">+237 677223928</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 AMOUBE NDE LOUANGE-MYSTERE. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var links = document.querySelectorAll('.menu a');
+      var here = location.pathname.split('/').pop() || 'index.html';
+      links.forEach(function(a){
+        var href = a.getAttribute('href');
+        if(href === here){ a.classList.add('active'); a.setAttribute('aria-current','page'); }
+        if(here === '' && (href === 'index.html' || href === './')){ a.classList.add('active'); a.setAttribute('aria-current','page'); }
+      });
+    })();
+  </script>
+
+  <!-- Page Animation Script -->
+  <script>
+    // Intersection Observer for page animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+                
+                // Animate skill cards with staggered delays
+                const skillCards = entry.target.querySelectorAll('.animate-skill-card');
+                skillCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.classList.add('animate-in');
+                    }, index * 100);
+                });
+            }
+        });
+    }, observerOptions);
+
+    // Page load animations
+    document.addEventListener('DOMContentLoaded', () => {
+        // Animate page title
+        setTimeout(() => {
+            document.querySelector('.animate-page-title').classList.add('animate-in');
+        }, 300);
+        
+        // Observe scroll elements
+        const animateElements = document.querySelectorAll('.animate-on-scroll');
+        animateElements.forEach(el => observer.observe(el));
+    });
+  </script>
+</body>
+</html>
+

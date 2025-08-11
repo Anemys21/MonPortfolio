@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+</head>
+<body>
+    <header>
+            <nav class="menu-nav">
+                <h2 class="portfolio">Portfolio</h2>
+                <h2 class="nom">AMOUBE NDE LOUANGE-MYSTERE</h2>
+                <ul class="menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="competences.html">Competences</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html">Contacts</a></li>
+                </ul>
+            </nav>
+    </header>
+    <script>
+      (function(){
+        var links = document.querySelectorAll('.menu a');
+        var here = location.pathname.split('/').pop() || 'index.html';
+        links.forEach(function(a){
+          var href = a.getAttribute('href');
+          if(href === here){ a.classList.add('active'); a.setAttribute('aria-current','page'); }
+          if(here === '' && (href === 'index.html' || href === './')){ a.classList.add('active'); a.setAttribute('aria-current','page'); }
+        });
+      })();
+    </script>
+    
+    <!-- Scroll Animation Script -->
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                    
+                    // Animate timeline items with staggered delays
+                    const timelineItems = entry.target.querySelectorAll('.animate-timeline-item');
+                    timelineItems.forEach((item, index) => {
+                        const delay = parseFloat(item.dataset.delay) || 0;
+                        setTimeout(() => {
+                            item.style.animationDelay = delay + 's';
+                            item.style.opacity = '1';
+                        }, delay * 1000);
+                    });
+                    
+                    // Animate tools section
+                    if (entry.target.classList.contains('tools')) {
+                        // Animate tools title
+                        const toolsTitle = entry.target.querySelector('.animate-tools-title');
+                        if (toolsTitle) {
+                            setTimeout(() => {
+                                toolsTitle.classList.add('animate-in');
+                            }, 200);
+                        }
+                        
+                        // Animate tool cards with staggered delays
+                        const toolCards = entry.target.querySelectorAll('.animate-tool-card');
+                        toolCards.forEach((card, index) => {
+                            setTimeout(() => {
+                                card.classList.add('animate-in');
+                                
+                                // Store original width for meter animation
+                                const meter = card.querySelector('.tool-meter .level');
+                                if (meter) {
+                                    const width = meter.style.width;
+                                    meter.style.setProperty('--target-width', width);
+                                }
+                            }, 400 + (index * 100));
+                        });
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+            animateElements.forEach(el => observer.observe(el));
+        });
+    </script>
+    
+    <section class="back">
+        <div class="hero">
+            <div class="hero-left">
+                <h2 class="animate-text animate-delay-1"> Hello,</h2>
+                <h2 class="trait animate-text animate-delay-2">I'm MYSTERE AMOUBE</h2>
+                <h2 class="animate-text animate-delay-3">DIGITAL ARTS ENGENEER STUDENT</h2>
+                <a class="button animate-button animate-delay-4" href="CV Français Simple Moderne Bleu 1.png" target="_blank" download>
+                    Download my CV
+                </a>
+            </div>
+            <div class="hero-right">
+                <div class="hero-card">
+                    <img src="C:\Users\MYSTERE\Desktop\Portfolio\profil-removebg-preview.png" alt="Avatar" style="width:100%; height:100%; object-fit:cover; border-radius:8px;" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="langage">
+        <h3>HTML5</h3>
+        <h3>CSS3</h3>
+        <h3>JAVASCRIPT</h3>
+        <h3>NODE JS</h3>
+        <h3>REACT</h3>
+        <h3>GIT</h3>
+        <h3>GITHUB</h3>
+        <h3>ANGULAR</h3>
+        <h3>PUG</h3>
+    </div>
+    <section class="about">
+        <div class="about-grid">
+            <div class="timeline animate-on-scroll">
+                <ul class="timeline-list">
+                    <li class="timeline-item animate-timeline-item" data-delay="0.1">
+                        <i class="fas fa-code service-icon"></i>
+                        <span>Website development</span>
+                    </li>
+                    <li class="timeline-item animate-timeline-item" data-delay="0.3">
+                        <i class="fas fa-mobile-alt service-icon"></i>
+                        <span>App development</span>
+                    </li>
+                    <li class="timeline-item animate-timeline-item" data-delay="0.5">
+                        <i class="fas fa-server service-icon"></i>
+                        <span>Website hosting</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="about-content animate-on-scroll">
+                <h3 class="about-me animate-about-title">About me</h3>
+                <p class="profil animate-about-text">I am an <span class="highlight-text">exceptionally motivated</span> and <span class="highlight-text">passionate student</span> in Digital Arts Engineering, specializing in <span class="highlight-text">web and mobile development</span>. With a solid foundation in programming, graphic design, and application development, I create <span class="highlight-text">innovative and engaging user experiences</span> for web and mobile platforms. Using a rigorous and creative approach, I design <span class="highlight-text">efficient and aesthetic technological solutions</span> that meet user needs.</p>
+            </div>
+        </div>
+    </section>
+    <section class="tools animate-on-scroll">
+        <h3 class="tools-title animate-tools-title">Tools</h3>
+        <div class="tools-grid animate-tools-grid">
+            <div class="tool-card animate-tool-card" data-delay="0.1">
+                <div class="tool-icon"><img src="C:\Users\MYSTERE\Desktop\Portfolio\adobe-xd-svgrepo-com.svg" alt="" style="width:40px;height:40px;"/></div>
+                <span class="tool-name">Adobe XD</span>
+                <div class="tool-meter"><span class="level" style="width:85%"></span></div>
+            </div>
+            <div class="tool-card animate-tool-card" data-delay="0.1">
+                <div class="tool-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg" alt="VS Code" style="background:#fff; border-radius:5px; padding:2px; width:40px; height:40px;"/></div>
+                <span class="tool-name">VS Code</span>
+                <div class="tool-meter"><span class="level" style="width:90%"></span></div>
+            </div>
+            <div class="tool-card animate-tool-card" data-delay="0.1">
+                <div class="tool-icon"><img src="https://cdn.simpleicons.org/git/FFFFFF" alt="Git"/></div>
+                <span class="tool-name">Git</span>
+                <div class="tool-meter"><span class="level" style="width:80%"></span></div>
+            </div>
+            <div class="tool-card animate-tool-card" data-delay="0.1">
+                <div class="tool-icon"><img src="https://cdn.simpleicons.org/github/FFFFFF" alt="GitHub"/></div>
+                <span class="tool-name">GitHub</span>
+                <div class="tool-meter"><span class="level" style="width:75%"></span></div>
+            </div>
+            <div class="tool-card animate-tool-card" data-delay="0.1">
+                <div class="tool-icon"><img src="https://cdn.simpleicons.org/mysql/00758F" alt="MySQL"/></div>
+                <span class="tool-name">MySQL</span>
+                <div class="tool-meter"><span class="level" style="width:70%"></span></div>
+            </div>
+            <div class="tool-card animate-tool-card" data-delay="0.1">
+                <div class="tool-icon"><img src="https://cdn.simpleicons.org/androidstudio/3DDC84" alt="Android Studio" style="background:#fff; border-radius:5px; padding:2px;"/></div>
+                <span class="tool-name">Android Studio</span>
+                <div class="tool-meter"><span class="level" style="width:60%"></span></div>
+            </div>
+            <div class="tool-card animate-tool-card" data-delay="0.1">
+                <div class="tool-icon"><img src="https://cdn.simpleicons.org/nodedotjs/FFFFFF" alt="Node.js"/></div>
+                <span class="tool-name">Node.js</span>
+                <div class="tool-meter"><span class="level" style="width:70%"></span></div>
+            </div>
+            <div class="tool-card animate-tool-card" data-delay="0.1">
+                <div class="tool-icon"><img src="https://cdn.simpleicons.org/googlechrome/FFFFFF" alt="Chrome DevTools"/></div>
+                <span class="tool-name">Chrome DevTools</span>
+                <div class="tool-meter"><span class="level" style="width:85%"></span></div>
+            </div>
+            <div class="tool-card animate-tool-card" data-delay="0.1">
+                <div class="tool-icon"><img src="https://cdn.simpleicons.org/pycharm/FFFFFF" alt="PyCharm"/></div>
+                <span class="tool-name">PyCharm</span>
+                <div class="tool-meter"><span class="level" style="width:75%"></span></div>
+            </div>
+        </div>
+    </section>
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="footer-logo">Portfolio</div>
+                <div class="socials">
+                    <a href="https://github.com/Anemys21" aria-label="Github" class="social"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/mystere-nde-1aa960379?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" aria-label="LinkedIn" class="social"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://x.com/Mysterelouange?t=dGSXy-oxYhgWmnEa4SIldg&s=09" aria-label="Twitter" class="social"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" aria-label="Instagram" class="social"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <ul>
+                    <li><i class="fa-solid fa-envelope"></i> <a href="mailto:louangeamoube@example.com">louangeamoube@example.com</a></li>
+                    <li><i class="fa-solid fa-phone"></i> <a href="tel:+237677223928">+237 677223928</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 AMOUBE NDE LOUANGE-MYSTERE. All rights reserved.</p>
+        </div>
+    </footer>
+       
+ </body>
+</html>

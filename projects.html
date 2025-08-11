@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Projects - Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <meta charset="utf-8" />
+</head>
+<body>
+  <header>
+    <nav class="menu-nav">
+      <h2 class="portfolio">Portfolio</h2>
+      <h2 class="nom">AMOUBE NDE LOUANGE-MYSTERE</h2>
+      <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="competences.html">Competences</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contacts</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="projects-container">
+    <h1 class="projects-title animate-page-title">My Projects</h1>
+
+    <div class="projects-grid">
+      <section class="project-frame animate-project-card" data-delay="0.2">
+        <div class="project-content">
+          <div class="project-icon">
+            <i class="fas fa-globe-americas"></i>
+          </div>
+          <h3 class="project-title">Portfolio Website</h3>
+          <p class="project-description">A modern, responsive portfolio website showcasing my skills and projects with smooth animations and interactive elements.</p>
+          <div class="project-tech">
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">JavaScript</span>
+          </div>
+        </div>
+        <a class="project-link" href="#">View Project</a>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">Portfolio</div>
+        <div class="socials">
+          <a href="https://github.com/Anemys21" aria-label="Github" class="social"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/mystere-nde-1aa960379?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" aria-label="LinkedIn" class="social"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://x.com/Mysterelouange?t=dGSXy-oxYhgWmnEa4SIldg&s=09" aria-label="Twitter" class="social"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" aria-label="Instagram" class="social"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <ul>
+          <li><i class="fa-solid fa-envelope"></i> <a href="mailto:louangeamoube@example.com">louangeamoube@example.com</a></li>
+          <li><i class="fa-solid fa-phone"></i> <a href="tel:+237677223928">+237 677223928</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 AMOUBE NDE LOUANGE-MYSTERE. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var links = document.querySelectorAll('.menu a');
+      var here = location.pathname.split('/').pop() || 'index.html';
+      links.forEach(function(a){
+        var href = a.getAttribute('href');
+        if(href === here){ a.classList.add('active'); a.setAttribute('aria-current','page'); }
+        if(here === '' && (href === 'index.html' || href === './')){ a.classList.add('active'); a.setAttribute('aria-current','page'); }
+      });
+    })();
+  </script>
+
+  <!-- Projects Animation Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Animate page title
+        setTimeout(() => {
+            document.querySelector('.animate-page-title').classList.add('animate-in');
+        }, 300);
+        
+        // Animate project cards with staggered delays
+        const projectCards = document.querySelectorAll('.animate-project-card');
+        projectCards.forEach((card, index) => {
+            const delay = parseFloat(card.dataset.delay) || 0;
+            setTimeout(() => {
+                card.classList.add('animate-in');
+            }, delay * 1000);
+        });
+    });
+  </script>
+</body>
+</html>
+
