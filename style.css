@@ -1049,6 +1049,79 @@
     }
 }
 
+/* Translation-stable design styles */
+/* Ensure consistent layout during translation */
+.hero-left h2 {
+    min-height: 1.2em;
+    font-weight: bold !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0.02em !important;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.trait {
+    min-height: 1.2em;
+    white-space: nowrap !important;
+    overflow: visible !important;
+    font-size: 2.8rem !important;
+    font-weight: 700 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+/* Prevent layout shifts during translation */
+.menu li a {
+    min-width: fit-content;
+    white-space: nowrap;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+}
+
+.timeline-item {
+    min-height: 2em;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.tool-name {
+    font-weight: 600 !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100px;
+}
+
+.skill-name {
+    font-weight: 600 !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 120px;
+}
+
+/* Stable footer layout */
+.footer-contact li {
+    min-height: 1.5em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-logo {
+    font-weight: 800 !important;
+    font-size: 24px !important;
+}
+
+/* Prevent button text overflow */
+.button {
+    white-space: nowrap;
+    min-width: fit-content;
+    font-weight: bold !important;
+}
+
 /* Comprehensive Mobile Responsive Design */
 @media (max-width: 768px) {
     /* General mobile adjustments */
