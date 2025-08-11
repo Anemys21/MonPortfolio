@@ -89,36 +89,7 @@
             <p>&copy; 2025 AMOUBE NDE LOUANGE-MYSTERE. All rights reserved.</p>
         </div>
     </footer>
-    <script>
-      (function(){
-        var links = document.querySelectorAll('.menu a');
-        var here = location.pathname.split('/').pop() || 'index.html';
-        links.forEach(function(a){
-          var href = a.getAttribute('href');
-          if(href === here){ a.classList.add('active'); a.setAttribute('aria-current','page'); }
-          if(here === '' && (href === 'index.html' || href === './')){ a.classList.add('active'); a.setAttribute('aria-current','page'); }
-        });
-      })();
-    </script>
-
-    <!-- Contact Animation Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Animate page title
-            setTimeout(() => {
-                document.querySelector('.animate-page-title').classList.add('animate-in');
-            }, 300);
-            
-            // Animate all elements with staggered delays
-            const animateElements = document.querySelectorAll('[data-delay]');
-            animateElements.forEach(element => {
-                const delay = parseFloat(element.dataset.delay) || 0;
-                setTimeout(() => {
-                    element.classList.add('animate-in');
-                }, delay * 1000);
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
 

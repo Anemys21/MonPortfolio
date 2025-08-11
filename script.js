@@ -61,12 +61,12 @@ const observer = new IntersectionObserver((entries) => {
             }
             
             // Animate skills cards with staggered delays
-            if (entry.target.classList.contains('skills-grid')) {
+            if (entry.target.classList.contains('skills-frame') || entry.target.classList.contains('skills-grid')) {
                 const skillCards = entry.target.querySelectorAll('.animate-skill-card');
                 skillCards.forEach((card, index) => {
                     setTimeout(() => {
                         card.classList.add('animate-in');
-                    }, 100 + (index * 150));
+                    }, index * 100);
                 });
             }
             
@@ -127,9 +127,9 @@ function initializePageAnimations() {
             skillsTitle.classList.add('animate-page-title');
         }
         
-        const skillsGrid = document.querySelector('.skills-grid');
-        if (skillsGrid) {
-            observer.observe(skillsGrid);
+        const skillsFrame = document.querySelector('.skills-frame');
+        if (skillsFrame) {
+            observer.observe(skillsFrame);
         }
     }
     
@@ -164,6 +164,21 @@ function initializePageAnimations() {
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     initializePageAnimations();
+    
+    // Special handling for competences page
+    if (document.querySelector('.skills-container')) {
+        // Animate page title immediately
+        setTimeout(() => {
+            const pageTitle = document.querySelector('.animate-page-title');
+            if (pageTitle) {
+                pageTitle.classList.add('animate-in');
+            }
+        }, 300);
+        
+        // Observe scroll elements for skills page
+        const animateElements = document.querySelectorAll('.animate-on-scroll');
+        animateElements.forEach(el => observer.observe(el));
+    }
 });
 
 // Page load animations for titles
