@@ -1049,8 +1049,204 @@
     }
 }
 
-/* Responsive adjustments for projects */
+/* Comprehensive Mobile Responsive Design */
 @media (max-width: 768px) {
+    /* General mobile adjustments */
+    body {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    
+    /* Header and Navigation */
+    .menu-nav {
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+    }
+    
+    .portfolio, .nom {
+        font-size: 1.2em;
+        text-align: center;
+    }
+    
+    .menu {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .menu li a {
+        padding: 10px;
+        display: block;
+    }
+    
+    /* Hero Section */
+    .hero {
+        flex-direction: column;
+        gap: 30px;
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .hero-left {
+        order: 2;
+    }
+    
+    .hero-right {
+        order: 1;
+    }
+    
+    .hero-left h2 {
+        font-size: 1.8em;
+        margin-bottom: 15px;
+    }
+    
+    .trait {
+        font-size: 1.6em !important;
+    }
+    
+    .hero-card {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+    }
+    
+    .button {
+        padding: 12px 24px;
+        font-size: 14px;
+        margin-top: 20px;
+    }
+    
+    /* Languages Section */
+    .langage {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 20px;
+    }
+    
+    .langage h3 {
+        font-size: 12px;
+        padding: 8px;
+    }
+    
+    /* About Section */
+    .about-grid {
+        flex-direction: column;
+        gap: 30px;
+        padding: 20px;
+    }
+    
+    .timeline-list {
+        gap: 15px;
+    }
+    
+    .timeline-item {
+        padding: 15px;
+        font-size: 14px;
+    }
+    
+    .service-icon {
+        font-size: 1.2em;
+    }
+    
+    .about-content {
+        text-align: left;
+    }
+    
+    .about-me {
+        font-size: 1.8em;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .profil {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+    
+    /* Tools Section */
+    .tools {
+        padding: 20px;
+    }
+    
+    .tools-title {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+    
+    .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .tool-card {
+        padding: 15px;
+    }
+    
+    .tool-icon img {
+        width: 30px !important;
+        height: 30px !important;
+    }
+    
+    .tool-name {
+        font-size: 12px;
+        margin: 8px 0;
+    }
+    
+    .tool-meter {
+        height: 6px;
+    }
+    
+    /* Footer */
+    .site-footer {
+        padding: 20px;
+    }
+    
+    .footer-top {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .footer-brand {
+        order: 1;
+    }
+    
+    .footer-contact {
+        order: 2;
+    }
+    
+    .footer-logo {
+        font-size: 1.5em;
+    }
+    
+    .socials {
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .social {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2em;
+    }
+    
+    .footer-contact ul {
+        gap: 10px;
+    }
+    
+    .footer-contact li {
+        font-size: 13px;
+    }
+    
+    .footer-bottom {
+        text-align: center;
+        font-size: 12px;
+        padding-top: 15px;
+    }
+    
+    /* Projects page responsive */
     .projects-grid {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -1063,6 +1259,49 @@
     .project-icon {
         width: 50px;
         height: 50px;
+        font-size: 1.5em;
+    }
+}
+
+/* Extra small devices (phones in portrait) */
+@media (max-width: 480px) {
+    /* Even smaller adjustments for very small screens */
+    .hero-left h2 {
+        font-size: 1.4em;
+    }
+    
+    .trait {
+        font-size: 1.3em !important;
+    }
+    
+    .hero-card {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .langage {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+    
+    .tools-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .tool-card {
+        padding: 12px;
+    }
+    
+    .menu-nav {
+        padding: 10px;
+    }
+    
+    .about-me {
+        font-size: 1.5em;
+    }
+    
+    .tools-title {
         font-size: 1.5em;
     }
 }
