@@ -179,6 +179,60 @@ document.addEventListener('DOMContentLoaded', () => {
         const animateElements = document.querySelectorAll('.animate-on-scroll');
         animateElements.forEach(el => observer.observe(el));
     }
+
+    // Mobile burger menu
+    const burger = document.querySelector('.burger');
+    const menu = document.getElementById('main-menu');
+    if (burger && menu) {
+        const body = document.body;
+        const links = menu.querySelectorAll('a');
+        // set initial aria state
+        menu.setAttribute('aria-hidden','true');
+
+        function closeMenu() {
+            menu.classList.remove('open');
+            burger.classList.remove('active');
+            body.classList.remove('no-scroll');
+            burger.setAttribute('aria-expanded', 'false');
+            menu.setAttribute('aria-hidden','true');
+        }
+
+        burger.addEventListener('click', () => {
+            const isOpen = menu.classList.toggle('open');
+            burger.classList.toggle('active', isOpen);
+            body.classList.toggle('no-scroll', isOpen);
+            burger.setAttribute('aria-expanded', String(isOpen));
+            menu.setAttribute('aria-hidden', String(!isOpen));
+        });
+
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                closeMenu();
+            });
+        });
+
+        // Close on outside click
+        document.addEventListener('click', (e) => {
+            const isClickInsideMenu = menu.contains(e.target);
+            const isClickOnBurger = burger.contains(e.target);
+            if (!isClickInsideMenu && !isClickOnBurger && menu.classList.contains('open')) {
+                closeMenu();
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && menu.classList.contains('open')) {
+                closeMenu();
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 901) {
+                closeMenu();
+            }
+        });
+    }
 });
 
 // Page load animations for titles

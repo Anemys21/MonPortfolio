@@ -12,7 +12,7 @@
     background-color: #152734;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; /* desktop: titles left, menu right */
     height: 75px;
     padding: 0 24px;
     gap: 16px;
@@ -25,7 +25,7 @@
   }
   .menu {
     list-style: none;
-    display: flex;
+    display: flex; /* desktop default visible */
     align-items: center;
     gap: 28px;
   }
@@ -52,6 +52,37 @@
   .menu li a:hover {
     color: #FD7747;
   }
+  /* Burger button */
+  .burger{
+    display: none; /* hidden on desktop */
+    width: 44px;
+    height: 44px;
+    border: none;
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
+  }
+  .burger:focus{ outline: 2px solid #FD7747; outline-offset: 2px; }
+  .burger:hover{ background: rgba(255,255,255,0.12); }
+  .burger:active{ transform: scale(0.96); box-shadow: 0 4px 16px rgba(0,0,0,0.25); }
+  .burger .line{
+    width: 22px; height: 2.5px; border-radius: 2px;
+    background: #ffffff;
+    box-shadow: 0 0 1px rgba(0,0,0,0.25);
+    transition: transform .3s ease, opacity .2s ease;
+  }
+  .burger.active .line:nth-child(1){ transform: translateY(7px) rotate(45deg); }
+  .burger.active .line:nth-child(2){ opacity: 0; }
+  .burger.active .line:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
+
+  /* Prevent background scroll when menu open */
+  body.no-scroll{ overflow: hidden; }
   .back{
     position: relative;
     background-image:linear-gradient(rgba(255,255,255,0.18),rgba(255,255,255,0.18)),url('PFI.png') ;
@@ -445,6 +476,65 @@
     .about-grid{ grid-template-columns: 1fr; gap: 32px; }
     .tools-grid{ grid-template-columns: repeat(2, minmax(140px, 1fr)); }
     .tools-title{ margin-left: 0; }
+  }
+  @media (max-width: 900px){
+    /* Mobile: show burger; menu as left drawer sliding vertically */
+    .burger{ display: inline-flex; }
+    .menu-nav{ flex-direction: row; height: 75px; gap: 12px; padding: 0 12px; justify-content: flex-start; }
+    .menu{
+      position: fixed;
+      top: 75px;
+      left: 0;
+      width: 78vw;
+      max-width: 280px;
+      height: calc(100vh - 75px);
+      background: #152734;
+      display: flex;
+      flex-direction: column;
+      padding: 16px 14px;
+      gap: 8px;
+      box-shadow: 8px 0 20px rgba(0,0,0,0.35);
+      z-index: 1001; /* above page dimmer */
+      transform: translateX(-105%);
+      opacity: 0;
+      transition: transform .32s ease, opacity .22s ease;
+      overflow-y: auto;
+      pointer-events: none;
+    }
+    .menu.open{ transform: translateX(0); opacity: 1; pointer-events: auto; }
+    .menu li a{ padding: 12px 10px; display: block; border-radius: 8px; transition: background .2s ease, transform .2s ease; }
+    .menu li a:hover{ background: rgba(255,255,255,0.06); }
+
+    /* Staggered menu items animation */
+    .menu.open li{ animation: drawerItem .28s ease-out both; }
+    .menu.open li:nth-child(1){ animation-delay: .02s; }
+    .menu.open li:nth-child(2){ animation-delay: .06s; }
+    .menu.open li:nth-child(3){ animation-delay: .10s; }
+    .menu.open li:nth-child(4){ animation-delay: .14s; }
+    .menu.open li:nth-child(5){ animation-delay: .18s; }
+
+    @keyframes drawerItem{
+      from{ transform: translateX(-12px); opacity: 0; }
+      to{ transform: translateX(0); opacity: 1; }
+    }
+
+    /* Dim background when menu open */
+    body.no-scroll::before{
+      content: "";
+      position: fixed; inset: 0; top: 75px; /* keep header visible */
+      background: rgba(0,0,0,0.35);
+      backdrop-filter: blur(1px);
+      -webkit-backdrop-filter: blur(1px);
+      pointer-events: none;
+      z-index: 999; /* sits under nav (1000) but above content */
+    }
+    .nom{ font-size: 16px; }
+
+    .back{ padding: 80px 16px 24px 16px; height: auto; }
+    .back h2, .trait{ font-size: 2rem; }
+    .trait::before{ width: 120px; }
+    .trait::after{ left: 120px; }
+    .langage{ flex-wrap: wrap; gap: 24px; justify-content: center; padding: 8px 12px; }
   }
   @media (max-width: 768px){
     .menu-nav{ flex-direction: column; height: auto; gap: 8px; padding: 12px; }
