@@ -12,7 +12,7 @@
     background-color: #152734;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* desktop: titles left, menu right */
+    justify-content: space-between; 
     height: 75px;
     padding: 0 24px;
     gap: 16px;
@@ -21,11 +21,10 @@
     z-index: 1000;
     width: 100%;
     left: 0;
-   
   }
   .menu {
     list-style: none;
-    display: flex; /* desktop default visible */
+    display: flex; 
     align-items: center;
     gap: 28px;
   }
@@ -52,9 +51,8 @@
   .menu li a:hover {
     color: #FD7747;
   }
-  /* Burger button */
   .burger{
-    display: none; /* hidden on desktop */
+    display: none; 
     width: 44px;
     height: 44px;
     border: none;
@@ -80,8 +78,6 @@
   .burger.active .line:nth-child(1){ transform: translateY(7px) rotate(45deg); }
   .burger.active .line:nth-child(2){ opacity: 0; }
   .burger.active .line:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
-
-  /* Prevent background scroll when menu open */
   body.no-scroll{ overflow: hidden; }
   .back{
     position: relative;
@@ -347,7 +343,6 @@
     height: 100%;
     background: #FD7747;
   }
-  /* Footer */
   .site-footer{
     background: #0f171e;
     color: rgba(255,255,255,0.85);
@@ -385,7 +380,6 @@
     text-align: center; padding: 16px 12px; color: rgba(255,255,255,0.6);
     background: #0f171e;
   }
-  /* Skills page */
   .skills-container{ max-width: 1200px; margin: 40px auto 80px auto; padding: 0 24px; }
   .skills-title{ color:#FD7747; font-size: 2.4rem; margin: 24px 0; font-weight:700; }
   .skills-frame{ background:#0f171e; border:2px solid rgba(255,255,255,0.18); border-radius:28px; padding: 32px; }
@@ -402,7 +396,6 @@
   @media (max-width: 480px){
     .skills-grid{ grid-template-columns: 1fr; }
   }
-  /* Projects page */
   .projects-container{ max-width: 1200px; margin: 40px auto 80px auto; padding: 0 24px; }
   .projects-title{
     color: #FD7747; font-size: 2.4rem; margin: 24px 0; font-weight: 700;
@@ -426,7 +419,6 @@
     .project-frame{ min-height: 380px; }
     .next-project{ right: 16px; bottom: 16px; }
   }
-  /* Contact page */
   .contact-container{
     max-width: 1100px;
     margin: 40px auto 80px auto;
@@ -463,113 +455,395 @@
     background:#0f171e; color:#fff; border:1px solid rgba(255,255,255,0.18); border-radius:8px; padding:12px 14px; outline:none;
   }
   .form-row input:focus, .form-row textarea:focus{ border-color:#FD7747; }
-
   @media (max-width: 768px){
     .contact-text{ font-size: 18px; }
     .contact-title{ font-size: 1.8rem; }
   }
-  /* Responsive */
-  @media (max-width: 1024px){
-    .hero{ grid-template-columns: 1fr; }
-    .hero-right{ margin-top: 24px; }
-    .hero-card{ width: 320px; height: 420px; }
-    .about-grid{ grid-template-columns: 1fr; gap: 32px; }
-    .tools-grid{ grid-template-columns: repeat(2, minmax(140px, 1fr)); }
-    .tools-title{ margin-left: 0; }
+  @media (max-width: 1024px) {
+    .hero { 
+      grid-template-columns: 1fr; 
+      gap: 30px;
+      text-align: center;
+    }
+    .hero-right { 
+      order: -1;
+      margin-top: 0;
+    }
+    .hero-card { 
+      width: 350px; 
+      height: 400px;
+      margin: 0 auto;
+    }
+    .about-grid { 
+      grid-template-columns: 1fr; 
+      gap: 32px; 
+    }
+    .tools-grid { 
+      grid-template-columns: repeat(3, 1fr); 
+      gap: 20px;
+    }
+    .tools-title { 
+      margin-left: 0; 
+      text-align: center;
+    }
+    .back {
+      padding: 100px 30px 40px 30px;
+    }
   }
-  @media (max-width: 900px){
-    /* Mobile: show burger; menu as left drawer sliding vertically */
-    .burger{ display: inline-flex; }
-    .menu-nav{ flex-direction: row; height: 75px; gap: 12px; padding: 0 12px; justify-content: flex-start; }
-    .menu{
-      position: fixed;
-      top: 75px;
-      left: 0;
-      width: 78vw;
-      max-width: 280px;
-      height: calc(100vh - 75px);
-      background: #152734;
+  @media (max-width: 960px) {
+    .burger { 
+      display: inline-flex;
+      width: 48px;
+      height: 48px;
+      touch-action: manipulation;
+    }
+    .menu-nav { 
+      height: 70px;
+      padding: 0 16px;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-left {
       display: flex;
       flex-direction: column;
-      padding: 16px 14px;
-      gap: 8px;
-      box-shadow: 8px 0 20px rgba(0,0,0,0.35);
-      z-index: 1001; /* above page dimmer */
-      transform: translateX(-105%);
+      align-items: flex-start;
+      gap: 2px;
+      flex: 1;
+      min-width: 0;
+    }
+    .portfolio {
+      font-size: 1.1rem;
+      margin: 0;
+      line-height: 1.2;
+    }
+    .nom { 
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.8);
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 200px;
+    }
+    .menu {
+      position: fixed;
+      top: 70px;
+      left: 0;
+      width: 85vw;
+      max-width: 320px;
+      height: calc(100vh - 70px);
+      background: linear-gradient(180deg, #152734 0%, #0f1f2a 100%);
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      gap: 12px;
+      box-shadow: 8px 0 25px rgba(0,0,0,0.4);
+      z-index: 1001;
+      transform: translateX(-100%);
       opacity: 0;
-      transition: transform .32s ease, opacity .22s ease;
+      transition: transform .3s cubic-bezier(0.4, 0, 0.2, 1), opacity .25s ease;
       overflow-y: auto;
       pointer-events: none;
     }
-    .menu.open{ transform: translateX(0); opacity: 1; pointer-events: auto; }
-    .menu li a{ padding: 12px 10px; display: block; border-radius: 8px; transition: background .2s ease, transform .2s ease; }
-    .menu li a:hover{ background: rgba(255,255,255,0.06); }
-
-    /* Staggered menu items animation */
-    .menu.open li{ animation: drawerItem .28s ease-out both; }
-    .menu.open li:nth-child(1){ animation-delay: .02s; }
-    .menu.open li:nth-child(2){ animation-delay: .06s; }
-    .menu.open li:nth-child(3){ animation-delay: .10s; }
-    .menu.open li:nth-child(4){ animation-delay: .14s; }
-    .menu.open li:nth-child(5){ animation-delay: .18s; }
-
-    @keyframes drawerItem{
-      from{ transform: translateX(-12px); opacity: 0; }
-      to{ transform: translateX(0); opacity: 1; }
+    .menu.open { 
+      transform: translateX(0); 
+      opacity: 1; 
+      pointer-events: auto; 
     }
-
-    /* Dim background when menu open */
-    body.no-scroll::before{
+    .menu li a { 
+      padding: 16px 12px;
+      display: block;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      transition: all .2s ease;
+      border: 1px solid transparent;
+    }
+    .menu li a:hover,
+    .menu li a:focus { 
+      background: rgba(253, 119, 71, 0.1);
+      border-color: rgba(253, 119, 71, 0.3);
+      transform: translateX(4px);
+    }
+    .menu.open li { animation: slideInMenu .4s ease-out both; }
+    .menu.open li:nth-child(1) { animation-delay: .05s; }
+    .menu.open li:nth-child(2) { animation-delay: .1s; }
+    .menu.open li:nth-child(3) { animation-delay: .15s; }
+    .menu.open li:nth-child(4) { animation-delay: .2s; }
+    @keyframes slideInMenu {
+      from { 
+        transform: translateX(-20px); 
+        opacity: 0; 
+      }
+      to { 
+        transform: translateX(0); 
+        opacity: 1; 
+      }
+    }
+    body.no-scroll::before {
       content: "";
-      position: fixed; inset: 0; top: 75px; /* keep header visible */
-      background: rgba(0,0,0,0.35);
-      backdrop-filter: blur(1px);
-      -webkit-backdrop-filter: blur(1px);
-      pointer-events: none;
-      z-index: 999; /* sits under nav (1000) but above content */
+      position: fixed;
+      inset: 0;
+      top: 70px;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+      z-index: 999;
     }
-    .nom{ font-size: 16px; }
-
-    .back{ padding: 80px 16px 24px 16px; height: auto; }
-    .back h2, .trait{ font-size: 2rem; }
-    .trait::before{ width: 120px; }
-    .trait::after{ left: 120px; }
-    .langage{ flex-wrap: wrap; gap: 24px; justify-content: center; padding: 8px 12px; }
+    .back { 
+      padding: 90px 20px 30px 20px;
+      height: auto;
+      min-height: 500px;
+    }
+    .back h2, .trait { 
+      font-size: 1.8rem;
+      line-height: 1.3;
+    }
+    .trait::before { 
+      width: 100px;
+    }
+    .trait::after { 
+      left: 100px;
+    }
+    .hero-card {
+      width: 280px;
+      height: 320px;
+    }
+    .button {
+      padding: 14px 28px;
+      font-size: 15px;
+      margin-top: 25px;
+      touch-action: manipulation;
+    }
+    .langage { 
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      padding: 15px;
+    }
+    .tools-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
   }
-  @media (max-width: 768px){
-    .menu-nav{ flex-direction: column; height: auto; gap: 8px; padding: 12px; }
-    .menu{ gap: 16px; flex-wrap: wrap; justify-content: center; }
-    .nom{ font-size: 16px; }
-    .back{ padding: 80px 16px 24px 16px; height: auto; }
-    .back h2, .trait{ font-size: 2rem; }
-    .trait::before{ width: 120px; }
-    .trait::after{ left: 120px; }
-    .langage{ flex-wrap: wrap; gap: 24px; justify-content: center; padding: 8px 12px; }
-    .about{ padding: 40px 16px; }
-    .timeline{ padding-left: 36px; }
-    .timeline::before{ left: 18px; }
-    .timeline-list{ font-size: 22px; gap: 28px; }
-    .timeline-list li::before{ left: -22px; width: 10px; height: 10px; top: 5px; }
-    .profil{ font-size: 16px; max-width: 100%; }
-    .tools{ padding: 16px; }
-    .tools-grid{ grid-template-columns: 1fr; gap: 20px; }
-    .tool-icon{ width: 72px; height: 72px; font-size: 24px; }
-    .footer-top{ grid-template-columns: 1fr; text-align: center; }
-    .socials{ justify-content: center; }
+  @media (max-width: 768px) {
+    body {
+      font-size: 14px;
+      padding-top: 65px;
+    }
+    .menu-nav {
+      height: 65px;
+      padding: 0 12px;
+    }
+    .portfolio {
+      font-size: 1.1rem;
+    }
+    .menu {
+      top: 65px;
+      height: calc(100vh - 65px);
+      width: 90vw;
+      padding: 16px;
+    }
+    body.no-scroll::before {
+      top: 65px;
+    }
+    .back {
+      padding: 80px 15px 25px 15px;
+      min-height: 450px;
+    }
+    .back h2, .trait {
+      font-size: 1.6rem;
+      padding: 8px;
+    }
+    .trait::before {
+      width: 80px;
+    }
+    .trait::after {
+      left: 80px;
+    }
+    .hero-card {
+      width: 240px;
+      height: 280px;
+    }
+    .button {
+      padding: 12px 24px;
+      font-size: 14px;
+    }
+    .about {
+      padding: 30px 15px;
+    }
+    .about-me {
+      font-size: 1.8rem;
+      text-align: center;
+    }
+    .profil {
+      font-size: 15px;
+      line-height: 1.6;
+      text-align: left;
+    }
+    .timeline {
+      padding-left: 30px;
+    }
+    .timeline::before {
+      left: 15px;
+    }
+    .timeline-list {
+      font-size: 16px;
+      gap: 20px;
+    }
+    .timeline-list li::before {
+      left: -18px;
+      width: 8px;
+      height: 8px;
+      top: 4px;
+    }
+    .tools {
+      padding: 25px 15px;
+    }
+    .tools-title {
+      font-size: 1.6rem;
+      text-align: center;
+    }
+    .tools-grid {
+      grid-template-columns: 1fr;
+      gap: 15px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .tool-card {
+      padding: 20px;
+      text-align: center;
+    }
+    .tool-icon {
+      width: 60px;
+      height: 60px;
+      font-size: 20px;
+      margin: 0 auto 12px auto;
+    }
+    .tool-name {
+      font-size: 14px;
+      margin: 10px 0;
+    }
+    .tool-meter {
+      height: 8px;
+    }
+    .langage {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      padding: 12px;
+    }
+    .langage h3 {
+      font-size: 12px;
+      padding: 8px;
+      text-align: center;
+    }
+    .footer-top {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 25px;
+    }
+    .socials {
+      justify-content: center;
+      gap: 15px;
+    }
+    .social {
+      width: 45px;
+      height: 45px;
+      font-size: 18px;
+    }
   }
-  @media (max-width: 480px){
-    .back h2, .trait{ font-size: 1.6rem; }
-    .hero-card{ width: 260px; height: 360px; }
-    .menu li a{ font-size: 14px; }
-    .timeline-list{ font-size: 18px; }
-    .tools-title{ font-size: 1.6rem; }
+  @media (max-width: 480px) {
+    .menu-nav {
+      height: 60px;
+      padding: 0 10px;
+    }
+    .portfolio {
+      font-size: 1rem;
+    }
+    .burger {
+      width: 44px;
+      height: 44px;
+    }
+    .menu {
+      top: 60px;
+      height: calc(100vh - 60px);
+      width: 95vw;
+      padding: 12px;
+    }
+    body.no-scroll::before {
+      top: 60px;
+    }
+    .back {
+      padding: 70px 10px 20px 10px;
+      min-height: 400px;
+    }
+    .back h2, .trait {
+      font-size: 1.4rem;
+      padding: 6px;
+    }
+    .trait::before {
+      width: 60px;
+    }
+    .trait::after {
+      left: 60px;
+    }
+    .hero-card {
+      width: 200px;
+      height: 240px;
+    }
+    .button {
+      padding: 10px 20px;
+      font-size: 13px;
+      margin-top: 20px;
+    }
+    .about-me {
+      font-size: 1.5rem;
+    }
+    .tools-title {
+      font-size: 1.4rem;
+    }
+    .timeline-list {
+      font-size: 14px;
+    }
+    .langage {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    .langage h3 {
+      font-size: 11px;
+      padding: 6px;
+    }
+    .menu li a {
+      padding: 14px 10px;
+      font-size: 15px;
+    }
   }
-  /* Ajout pour le bouton Download CV */
+  @media (max-width: 360px) {
+    .back h2, .trait {
+      font-size: 1.2rem;
+    }
+    .hero-card {
+      width: 180px;
+      height: 220px;
+    }
+    .button {
+      padding: 8px 16px;
+      font-size: 12px;
+    }
+    .about-me {
+      font-size: 1.3rem;
+    }
+    .tools-title {
+      font-size: 1.2rem;
+    }
+  }
 .button {
     display: inline-block;
-    margin-top: 1cm; /* Descend le bouton de 1cm */
-    text-decoration: none !important; /* Enlève le soulignement */
-    background-color: #FD7747; /* Orange utilisé sur le site */
+    margin-top: 1cm; 
+    text-decoration: none !important; 
+    background-color: #FD7747; 
     color: #fff;
     padding: 12px 28px;
     border-radius: 6px;
@@ -580,8 +854,6 @@
     background-color: #e69500;
     text-decoration: none;
 }
-
-/* Hero Text Animations */
 @keyframes slideInFromLeft {
     0% {
         opacity: 0;
@@ -592,7 +864,6 @@
         transform: translateX(0);
     }
 }
-
 @keyframes fadeInUp {
     0% {
         opacity: 0;
@@ -603,7 +874,6 @@
         transform: translateY(0);
     }
 }
-
 @keyframes scaleIn {
     0% {
         opacity: 0;
@@ -614,51 +884,39 @@
         transform: scale(1);
     }
 }
-
 .animate-text {
     opacity: 0;
     animation: slideInFromLeft 0.8s ease-out forwards;
 }
-
 .animate-button {
     opacity: 0;
     animation: scaleIn 0.6s ease-out forwards;
 }
-
 .animate-delay-1 {
     animation-delay: 0.2s;
 }
-
 .animate-delay-2 {
     animation-delay: 0.6s;
 }
-
 .animate-delay-3 {
     animation-delay: 1.0s;
 }
-
 .animate-delay-4 {
     animation-delay: 1.4s;
 }
-
-/* Enhanced trait animation */
 .trait.animate-text {
     animation: slideInFromLeft 0.8s ease-out forwards;
 }
-
 .trait::before {
     opacity: 0;
     animation: slideInFromLeft 0.6s ease-out forwards;
     animation-delay: 0.8s;
 }
-
 .trait::after {
     opacity: 0;
     animation: fadeInUp 0.4s ease-out forwards;
     animation-delay: 1.0s;
 }
-
-/* About Section Animations */
 @keyframes slideInFromRight {
     0% {
         opacity: 0;
@@ -669,7 +927,6 @@
         transform: translateX(0);
     }
 }
-
 @keyframes fadeInScale {
     0% {
         opacity: 0;
@@ -680,7 +937,6 @@
         transform: scale(1) translateY(0);
     }
 }
-
 @keyframes timelineSlide {
     0% {
         opacity: 0;
@@ -691,7 +947,6 @@
         transform: translateX(0);
     }
 }
-
 @keyframes highlightGlow {
     0%, 100% {
         background-size: 0% 100%;
@@ -700,37 +955,29 @@
         background-size: 100% 100%;
     }
 }
-
-/* Animation classes for scroll-triggered effects */
 .animate-on-scroll {
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.8s ease-out;
 }
-
 .animate-on-scroll.animate-in {
     opacity: 1;
     transform: translateY(0);
 }
-
 .animate-about-title {
     opacity: 0;
     animation: fadeInScale 1s ease-out forwards;
     animation-delay: 0.2s;
 }
-
 .animate-about-text {
     opacity: 0;
     animation: slideInFromRight 1.2s ease-out forwards;
     animation-delay: 0.5s;
 }
-
 .animate-timeline-item {
     opacity: 0;
     animation: timelineSlide 0.8s ease-out forwards;
 }
-
-/* Enhanced text styling */
 .highlight-text {
     background: linear-gradient(120deg, transparent 0%, transparent 50%, #FD7747 50%, #FD7747 100%);
     background-size: 0% 100%;
@@ -744,30 +991,23 @@
     color: #fff;
     transition: all 0.3s ease;
 }
-
 .highlight-text:hover {
     background-size: 100% 100%;
     color: #121F28;
     transform: scale(1.02);
 }
-
-/* Enhanced About Me title styling */
 .about-me {
     position: relative;
     overflow: hidden;
 }
-
 .about-me::before {
     animation: slideInFromLeft 0.8s ease-out forwards;
     animation-delay: 0.4s;
 }
-
 .about-me::after {
     animation: fadeInUp 0.4s ease-out forwards;
     animation-delay: 0.6s;
 }
-
-/* Enhanced profil text styling */
 .profil {
     line-height: 1.8;
     font-size: 18px;
@@ -775,7 +1015,6 @@
     text-align: justify;
     position: relative;
 }
-
 .profil::first-letter {
     font-size: 3em;
     font-weight: bold;
@@ -785,8 +1024,6 @@
     margin: 8px 8px 0 0;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
-
-/* Enhanced Service Icons Styling */
 .timeline-item {
     display: flex;
     align-items: center;
@@ -797,12 +1034,10 @@
     border-radius: 8px;
     padding-left: 8px;
 }
-
 .timeline-item:hover {
     background: rgba(253, 119, 71, 0.05);
     transform: translateX(5px);
 }
-
 .service-icon {
     font-size: 1.2em;
     color: #FD7747;
@@ -819,7 +1054,6 @@
     box-shadow: 0 4px 12px rgba(253, 119, 71, 0.15);
     flex-shrink: 0;
 }
-
 .service-icon:hover {
     background: linear-gradient(135deg, #FD7747, #ff9500);
     color: #fff;
@@ -827,7 +1061,6 @@
     box-shadow: 0 6px 20px rgba(253, 119, 71, 0.4);
     border-color: #FD7747;
 }
-
 .timeline-item span {
     font-size: 1.1em;
     font-weight: 500;
@@ -835,12 +1068,10 @@
     line-height: 1.4;
     transition: all 0.3s ease;
 }
-
 .timeline-item:hover span {
     color: #fff;
     transform: translateX(2px);
 }
-
 @keyframes iconPulse {
     0%, 100% {
         box-shadow: 0 0 0 0 rgba(253, 119, 71, 0.4);
@@ -849,8 +1080,6 @@
         box-shadow: 0 0 0 10px rgba(253, 119, 71, 0);
     }
 }
-
-/* Page Animations for All Pages */
 @keyframes pageSlideIn {
     0% {
         opacity: 0;
@@ -861,7 +1090,6 @@
         transform: translateY(0);
     }
 }
-
 @keyframes cardSlideUp {
     0% {
         opacity: 0;
@@ -872,7 +1100,6 @@
         transform: translateY(0) scale(1);
     }
 }
-
 @keyframes formFieldSlide {
     0% {
         opacity: 0;
@@ -883,48 +1110,37 @@
         transform: translateX(0);
     }
 }
-
-/* Page Title Animations */
 .animate-page-title {
     opacity: 0;
     animation: pageSlideIn 1s ease-out forwards;
 }
-
 .animate-page-title.animate-in {
     opacity: 1;
 }
-
-/* Skills Page Animations */
 .animate-skill-card {
     opacity: 0;
     transform: translateY(30px) scale(0.95);
     transition: all 0.6s ease-out;
 }
-
 .animate-skill-card.animate-in {
     opacity: 1;
     transform: translateY(0) scale(1);
 }
-
-/* Projects Page Animations */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 30px;
     margin-top: 40px;
 }
-
 .animate-project-card {
     opacity: 0;
     transform: translateY(40px) rotateX(10deg);
     transition: all 0.8s ease-out;
 }
-
 .animate-project-card.animate-in {
     opacity: 1;
     transform: translateY(0) rotateX(0deg);
 }
-
 .project-content {
     padding: 30px;
     height: calc(100% - 60px);
@@ -932,7 +1148,6 @@
     flex-direction: column;
     gap: 16px;
 }
-
 .project-icon {
     width: 60px;
     height: 60px;
@@ -946,27 +1161,23 @@
     margin-bottom: 10px;
     box-shadow: 0 4px 15px rgba(253, 119, 71, 0.3);
 }
-
 .project-title {
     color: #FD7747;
     font-size: 1.4em;
     margin: 0;
     font-weight: 600;
 }
-
 .project-description {
     color: rgba(255,255,255,0.85);
     line-height: 1.6;
     flex-grow: 1;
 }
-
 .project-tech {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
     margin-top: auto;
 }
-
 .tech-tag {
     background: rgba(253, 119, 71, 0.15);
     color: #FD7747;
@@ -976,7 +1187,6 @@
     font-weight: 500;
     border: 1px solid rgba(253, 119, 71, 0.3);
 }
-
 .project-link {
     position: absolute;
     bottom: 24px;
@@ -990,58 +1200,45 @@
     transition: all 0.3s ease;
     box-shadow: 0 2px 8px rgba(253, 119, 71, 0.3);
 }
-
 .project-link:hover {
     background: #e69500;
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(253, 119, 71, 0.4);
 }
-
-/* Contact Page Animations */
 .animate-contact-section {
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.8s ease-out;
 }
-
 .animate-contact-section.animate-in {
     opacity: 1;
     transform: translateY(0);
 }
-
 .animate-contact-item {
     opacity: 0;
     transform: translateX(-30px);
     transition: all 0.6s ease-out;
 }
-
 .animate-contact-item.animate-in {
     opacity: 1;
     transform: translateX(0);
 }
-
 .animate-form-field {
     opacity: 0;
     animation: formFieldSlide 0.6s ease-out forwards;
 }
-
 .animate-form-button {
     opacity: 0;
     animation: scaleIn 0.6s ease-out forwards;
 }
-
-/* Enhanced Contact Icons */
 .contact-icon {
     transition: all 0.3s ease;
 }
-
 .contact-row:hover .contact-icon {
     background: #FD7747 !important;
     color: #121F28 !important;
     transform: scale(1.1);
 }
-
-/* Tools Section Animations */
 @keyframes toolSlideIn {
     0% {
         opacity: 0;
@@ -1052,7 +1249,6 @@
         transform: translateY(0) scale(1);
     }
 }
-
 @keyframes toolMeterFill {
     0% {
         width: 0% !important;
@@ -1061,63 +1257,49 @@
         width: var(--target-width);
     }
 }
-
 .animate-tools-title {
     opacity: 0;
     animation: fadeInScale 1s ease-out forwards;
     animation-delay: 0.2s;
 }
-
 .animate-tools-title.animate-in {
     opacity: 1;
 }
-
 .animate-tool-card {
     opacity: 0;
     transform: translateY(40px) scale(0.9);
     transition: all 0.6s ease-out;
 }
-
 .animate-tool-card.animate-in {
     opacity: 1;
     transform: translateY(0) scale(1);
 }
-
 .animate-tool-card.animate-in .tool-meter .level {
     animation: toolMeterFill 1.5s ease-out forwards;
     animation-delay: 0.5s;
 }
-
-/* Enhanced tool card hover effects */
 .tool-card {
     transition: all 0.3s ease;
     cursor: pointer;
 }
-
 .tool-card:hover {
     transform: translateY(-5px) scale(1.02);
     box-shadow: 0 8px 25px rgba(0,0,0,0.3);
 }
-
 .tool-card:hover .tool-icon {
     transform: scale(1.1);
 }
-
 .tool-card:hover .tool-name {
     color: #FD7747;
 }
-
-/* Tool meter enhancements */
 .tool-meter {
     position: relative;
     overflow: hidden;
 }
-
 .tool-meter .level {
     transition: all 0.3s ease;
     position: relative;
 }
-
 .tool-meter .level::after {
     content: '';
     position: absolute;
@@ -1129,7 +1311,6 @@
     border-radius: 0 8px 8px 0;
     animation: pulse 2s ease-in-out infinite;
 }
-
 @keyframes pulse {
     0%, 100% {
         opacity: 0.6;
@@ -1138,9 +1319,6 @@
         opacity: 1;
     }
 }
-
-/* Translation-stable design styles */
-/* Ensure consistent layout during translation */
 .hero-left h2 {
     min-height: 1.2em;
     font-weight: bold !important;
@@ -1150,7 +1328,6 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-
 .trait {
     min-height: 1.2em;
     white-space: nowrap !important;
@@ -1160,22 +1337,18 @@
     display: inline-flex !important;
     align-items: center !important;
 }
-
-/* Prevent layout shifts during translation */
 .menu li a {
     min-width: fit-content;
     white-space: nowrap;
     font-weight: 600 !important;
     font-size: 15px !important;
 }
-
 .timeline-item {
     min-height: 2em;
     display: flex;
     align-items: center;
     gap: 12px;
 }
-
 .tool-name {
     font-weight: 600 !important;
     white-space: nowrap;
@@ -1183,7 +1356,6 @@
     text-overflow: ellipsis;
     max-width: 100px;
 }
-
 .skill-name {
     font-weight: 600 !important;
     white-space: nowrap;
@@ -1191,279 +1363,213 @@
     text-overflow: ellipsis;
     max-width: 120px;
 }
-
-/* Stable footer layout */
 .footer-contact li {
     min-height: 1.5em;
     display: flex;
     align-items: center;
     gap: 8px;
 }
-
 .footer-logo {
     font-weight: 800 !important;
     font-size: 24px !important;
 }
-
-/* Prevent button text overflow */
 .button {
     white-space: nowrap;
     min-width: fit-content;
     font-weight: bold !important;
 }
-
-/* Comprehensive Mobile Responsive Design */
 @media (max-width: 768px) {
-    /* General mobile adjustments */
     body {
         font-size: 14px;
         line-height: 1.5;
     }
-    
-    /* Header and Navigation */
     .menu-nav {
         flex-direction: column;
         padding: 15px;
         gap: 15px;
     }
-    
     .portfolio, .nom {
         font-size: 1.2em;
         text-align: center;
     }
-    
     .menu {
         flex-direction: column;
         gap: 10px;
         width: 100%;
         text-align: center;
     }
-    
     .menu li a {
         padding: 10px;
         display: block;
     }
-    
-    /* Hero Section */
     .hero {
         flex-direction: column;
         gap: 30px;
         padding: 20px;
         text-align: center;
     }
-    
     .hero-left {
         order: 2;
     }
-    
     .hero-right {
         order: 1;
     }
-    
     .hero-left h2 {
         font-size: 1.8em;
         margin-bottom: 15px;
     }
-    
     .trait {
         font-size: 1.6em !important;
     }
-    
     .hero-card {
         width: 200px;
         height: 200px;
         margin: 0 auto;
     }
-    
     .button {
         padding: 12px 24px;
         font-size: 14px;
         margin-top: 20px;
     }
-    
-    /* Languages Section */
     .langage {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
         padding: 20px;
     }
-    
     .langage h3 {
         font-size: 12px;
         padding: 8px;
     }
-    
-    /* About Section */
     .about-grid {
         flex-direction: column;
         gap: 30px;
         padding: 20px;
     }
-    
     .timeline-list {
         gap: 15px;
     }
-    
     .timeline-item {
         padding: 15px;
         font-size: 14px;
     }
-    
     .service-icon {
         font-size: 1.2em;
     }
-    
     .about-content {
         text-align: left;
     }
-    
     .about-me {
         font-size: 1.8em;
         text-align: center;
         margin-bottom: 20px;
     }
-    
     .profil {
         font-size: 14px;
         line-height: 1.6;
     }
-    
-    /* Tools Section */
     .tools {
         padding: 20px;
     }
-    
     .tools-title {
         font-size: 1.8em;
         margin-bottom: 20px;
     }
-    
     .tools-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
     }
-    
     .tool-card {
         padding: 15px;
     }
-    
     .tool-icon img {
         width: 30px !important;
         height: 30px !important;
     }
-    
     .tool-name {
         font-size: 12px;
         margin: 8px 0;
     }
-    
     .tool-meter {
         height: 6px;
     }
-    
-    /* Footer */
     .site-footer {
         padding: 20px;
     }
-    
     .footer-top {
         flex-direction: column;
         gap: 20px;
         text-align: center;
     }
-    
     .footer-brand {
         order: 1;
     }
-    
     .footer-contact {
         order: 2;
     }
-    
     .footer-logo {
         font-size: 1.5em;
     }
-    
     .socials {
         justify-content: center;
         gap: 15px;
     }
-    
     .social {
         width: 40px;
         height: 40px;
         font-size: 1.2em;
     }
-    
     .footer-contact ul {
         gap: 10px;
     }
-    
     .footer-contact li {
         font-size: 13px;
     }
-    
     .footer-bottom {
         text-align: center;
         font-size: 12px;
         padding-top: 15px;
     }
-    
-    /* Projects page responsive */
     .projects-grid {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    
     .project-content {
         padding: 20px;
     }
-    
     .project-icon {
         width: 50px;
         height: 50px;
         font-size: 1.5em;
     }
 }
-
-/* Extra small devices (phones in portrait) */
 @media (max-width: 480px) {
-    /* Even smaller adjustments for very small screens */
     .hero-left h2 {
         font-size: 1.4em;
     }
-    
     .trait {
         font-size: 1.3em !important;
     }
-    
     .hero-card {
         width: 150px;
         height: 150px;
     }
-    
     .langage {
         grid-template-columns: 1fr;
         gap: 8px;
     }
-    
     .tools-grid {
         grid-template-columns: 1fr;
         gap: 10px;
     }
-    
     .tool-card {
         padding: 12px;
     }
-    
     .menu-nav {
         padding: 10px;
     }
-    
     .about-me {
         font-size: 1.5em;
     }
-    
     .tools-title {
         font-size: 1.5em;
     }
