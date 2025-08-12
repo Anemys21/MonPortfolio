@@ -1584,3 +1584,19 @@
         font-size: 1.5em;
     }
 }
+
+@keyframes bgShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.back{position:relative;overflow:hidden}
+.back::before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,#0e1a22,#152734,#0f1f2a,#0e1a22);background-size:200% 200%;animation:bgShift 12s ease infinite;opacity:.6;z-index:-1}
+.hero{position:relative;z-index:1}
+.hero-card{position:relative;background:rgba(255,255,255,0.06);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);box-shadow:0 10px 30px rgba(0,0,0,.35),inset 0 0 0 1px rgba(255,255,255,0.06);transform-style:preserve-3d;transition:transform .2s ease,box-shadow .2s ease}
+.hero-card:hover{box-shadow:0 16px 40px rgba(253,119,71,.25),0 0 0 1px rgba(253,119,71,.3)}
+.button{box-shadow:0 6px 18px rgba(253,119,71,.25)}
+.button:hover{box-shadow:0 10px 26px rgba(253,119,71,.35),0 0 20px rgba(253,119,71,.35)}
+.tool-card{background:rgba(255,255,255,0.04);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,0.06)}
+.tool-card:hover{border-color:rgba(253,119,71,.4)}
+.animate-glow{position:relative}
+.animate-glow::after{content:"";position:absolute;inset:-2px;border-radius:12px;background:radial-gradient(120px 60px at var(--mx,50%) var(--my,50%),rgba(253,119,71,.25),transparent 60%);pointer-events:none;transition:opacity .2s ease;opacity:.6}
+@media (prefers-reduced-motion:reduce){.back::before{animation:none}.animate-on-scroll,.animate-text,.animate-button{animation:none!important;transition:none!important;opacity:1!important;transform:none!important}}
+.project-frame{position:relative;overflow:hidden;border-radius:14px}
+.project-badge{position:absolute;top:12px;left:12px;z-index:2;background:rgba(253,119,71,.9);color:#fff;padding:6px 10px;border-radius:999px;font-size:.8rem;font-weight:700;letter-spacing:.02em;box-shadow:0 4px 14px rgba(253,119,71,.35)}
