@@ -729,16 +729,20 @@
       height: 8px;
     }
     .langage {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      padding: 12px;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 8px 10px;
     }
     .langage h3 {
       font-size: 12px;
-      padding: 8px;
+      padding: 6px 8px;
       text-align: center;
+      flex: 0 0 auto;
     }
+    .langage h3:nth-child(n+5) { display: none; }
     .footer-top {
       grid-template-columns: 1fr;
       text-align: center;
@@ -808,13 +812,19 @@
       font-size: 14px;
     }
     .langage {
-      grid-template-columns: 1fr;
-      gap: 8px;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      padding: 6px 8px;
     }
     .langage h3 {
       font-size: 11px;
-      padding: 6px;
+      padding: 4px 6px;
+      flex: 0 0 auto;
     }
+    .langage h3:nth-child(n+5) { display: none; }
     .menu li a {
       padding: 14px 10px;
       font-size: 15px;
